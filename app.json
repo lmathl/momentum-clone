@@ -1,0 +1,6 @@
+{
+    "name": "Moment",
+    "description": "A Momentum Clone",
+    "keywords": ["node", "react", "static"],
+    "image": "heroku/nodejs"
+}

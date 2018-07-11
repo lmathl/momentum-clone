@@ -1,0 +1,772 @@
+@import url(css/weather-icons.min.css);
+
+body{
+  background-image: url("bg1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center; 
+  background-size: cover; 
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial;
+  color: white;
+}
+
+input[type='checkbox']{
+  cursor: pointer;
+}
+
+.user-select-none{
+  user-select: none;
+}
+
+input::placeholder{
+  color: #CCC;
+  text-align: left;
+}
+
+.left-upper{
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.right-upper{
+  position: absolute;
+  top: 0em;
+  right: 0.2em;
+  cursor: pointer;
+}
+
+#note-content{
+  position: absolute;
+  top: 3em;
+  left: 1em;
+  padding: 20px;
+  opacity: 0.85;
+  width: 23em;
+  height: 24em;
+  background-color: black;
+  border-radius: 6px;
+  max-height: 385px;
+  min-height: 100px;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-break: break-all;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+pre{
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.note-container{
+  font-size: 1em;  
+  margin: 4px;
+  margin-top: 15px;
+  padding: 4px;
+}
+
+.border-left{
+  border-left: 2px solid #888;
+}
+
+.thumbnail-container{
+  width: 105px;
+  height: 70px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+.thumbnail{
+  float: left;
+  width: 105px;
+  height: 70px;
+  opacity: 1;
+  z-index: 3;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.thumbnail:hover{
+  opacity: 0.8;
+  box-shadow: 0 4px 8px 0 rgba(70, 33, 33, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.thumbnail-container .set-active{
+  position: absolute;
+  visibility: hidden;
+  z-index: 4;
+  top: 0.5em;
+  right: 1em;
+  text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.thumbnail-container .set-favorite{
+  position: absolute;
+  visibility: hidden;
+  top: 0.5em;
+  right: 0.2em;
+}
+
+.thumbnail-container .delete{
+  position: absolute;
+  visibility: hidden;
+  top: 0.7em;
+  right: 1.9em;
+}
+
+.thumbnail-container:hover .set-active{
+  visibility: visible;
+}
+
+.thumbnail-container:hover .set-favorite{
+  visibility: visible;
+}
+
+.thumbnail-container:hover .delete{
+  visibility: visible;
+}
+
+.input-style{
+  border: none;
+  background: none;
+  color: #ddd;
+  border-bottom: 1px solid white;
+  width: 50%;
+}
+
+.input-style:focus{
+  outline: none;
+}
+
+.long-width{
+  width: 80%;
+}
+
+#todo-content input{
+  border: none;
+  background: none;
+  color: #ddd;
+}
+
+#todo-content input:focus{
+  outline: none;
+}
+
+.Input{
+  color: white;
+  width: 14em;
+  font-size: 30pt;
+  text-align: center;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  border-bottom: 2px solid white;
+}
+
+.padding-top{
+  padding-top: 1em;
+}
+
+.Input::placeholder{
+  color: white;
+  text-align: left;
+}
+
+.Input:focus{
+  outline: none;
+}
+
+.auth-button{
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  font-size: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 3em;
+  margin-right: 10px;
+}
+
+.auth-button:hover{
+  background-color:rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.submit-button{
+  background-color: grey;
+  color: white;
+  border: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.submit-button:hover{
+  background-color: #CCC;
+}
+
+.create-focus{
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  width: 70%;
+  line-height: 1.5em;
+  font-size: 24pt;
+  color: white;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 1s;
+  animation-name: animatetop;
+  animation-duration: 1s
+}
+
+.show-focus{
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  width: 70%;
+  font-size: 24pt;
+  color: white;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@keyframes animatebottom{ 
+  from{ top: 64%;; opacity:0 } 
+  to{ top: 72%;; opacity:1 }
+}
+@keyframes animatetop{ 
+  from{ top: 80%;; opacity:0 } 
+  to{ top: 72%;; opacity:1 }
+}
+
+.show-focus input{
+  width: 18px;
+  height: 18px;
+}
+
+.show-focus .complete{
+  display: inline;
+  margin-right: 25px;
+  cursor: pointer; 
+}
+
+.show-focus .focus-striked{
+  display: inline;
+  text-decoration: line-through;
+}
+
+.show-focus .focus{
+  display: inline;
+}
+
+.show-focus .remove{
+  display: inline;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.weather{
+  text-align: center;
+  width: 4.8em;
+  height: 3em;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  cursor: pointer;
+  user-select: none;
+ }
+
+.loading{
+  position: absolute;
+  top: 9.5em;
+  right: 15.7em;
+ }
+ 
+.spinner:before{
+  position: absolute;
+  right: 4.5em;
+  top: 2em;
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 1px solid #FFF;
+  border-bottom-color: #666;
+  animation: spinner .6s linear infinite;
+}
+ 
+@keyframes spinner{
+  to{transform: rotate(360deg);}
+}
+
+#weather-content{
+  position: absolute;
+  top: 3.9em;
+  right: 1.3em;
+  padding: 20px;
+  opacity: 0.85;
+  width: 23em;
+  height: 10em;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  user-select: none;
+}
+
+.forecast{
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7em;
+  width: 5.4em;
+  height: 2.3em;
+  padding: 5px;
+}
+
+.forecast .temp{
+  display: inline-block;
+  text-align: left;
+  font-size: 0.7em;
+}
+
+.forecast:hover{
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.forecast-info{
+  display: inline-block;
+  text-align: left;
+  margin-top: 13px;
+  font-size: 38pt;
+}
+.forecast-info .temp{
+  display: inline-block;
+  color: #CCC;
+  font-size: 30pt;
+}
+
+.forecast.temp{
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+textarea{
+  background-color: rgba(255, 255, 255, 0.07);
+  border: none;
+  color: white;
+  outline: none;
+}
+
+textarea::placeholder{
+  color: #CCC;
+}
+
+input{
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+.editing{
+  color: #AAA;
+  font-size: 1em;
+}
+
+.todo{
+  position: absolute;
+  right: 1.3em;
+  bottom: 1.3em;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+#todo-content{
+  background-color: black;
+  border-radius: 6px;
+  position: absolute;
+  right: 1.3em;
+  bottom: 3.5em;
+  padding: 20px;
+  padding-bottom: 40px;
+  opacity: 0.85;
+  width: 19em;
+  z-index: 1;
+  height: auto;
+  min-height: 10em !important; 
+  word-break: break-all;
+}
+
+.middle{
+  vertical-align: middle;
+  text-align: center;
+  user-select: none;
+}
+
+.inline{
+  display: inline;
+}
+
+.right{
+  float: right;
+}
+
+.right:hover{
+  color: #CCC;
+}
+
+#todo-content .right:hover{
+  cursor: pointer;
+}
+
+.add-todo{
+  position: absolute;
+  bottom: 1.3em;
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+.line-through{
+  text-decoration: line-through;
+}
+
+.time{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  font-size: 9.1em;
+  user-select: none;
+}
+
+.center{
+  text-align: center;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.greet{
+ position: absolute;
+ left: 50%;
+ top: 55%;
+ font-size: 3em;
+ width: 80%;
+ user-select: none;
+}
+
+.animate-top{
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  font-size: 3em;
+  user-select: none;
+  -webkit-animation-name: animatetop_name;
+  -webkit-animation-duration: 1s;
+  animation-name: animatetop_name;
+  animation-duration: 1s
+}
+
+@keyframes animatetop_name{ 
+ from{ top: 60%;; opacity:0 } 
+ to{ top: 47%;; opacity:1 }
+}
+
+.bottom{
+  position: absolute;
+  left: 50%;
+  bottom: 2em;
+  font-size: 1.5em;  
+  color: white;
+  -webkit-animation-name: animatebottom_name;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom_name;
+  animation-duration: 1s
+}
+
+@keyframes animatebottom_name{ 
+  from{ bottom:3em; opacity:0 } 
+  to{ bottom:2em; opacity:1 }
+ }
+
+.quote{
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1em;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  width: 75%;
+  word-wrap: break-word;
+  -webkit-animation-name: animateback_quote;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: animateback_quote;
+  animation-duration: 0.5s
+}
+
+.quote:hover{
+  -webkit-animation-name: animatetop_quote;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: animatetop_quote;
+  animation-duration: 0.5s
+}
+
+@keyframes animatetop_quote{ 
+  from{ bottom:-1em; } 
+  to{ bottom:0.8em; }
+ }
+
+ @keyframes animateback_quote{ 
+  from{ bottom:0.8em; } 
+  to{ bottom:-1em; }
+ }
+
+.author{
+  visibility: hidden;
+}
+
+.quote:hover .author{
+  visibility: visible;
+  position: relative;
+  animation-name: animatebottom_quote;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-duration: 0.5s
+}
+
+@keyframes animatebottom_quote{ 
+  from{ bottom: 40px; opacity:0 } 
+  to{ bottom: 0px; opacity:1 }
+}
+
+.settings{
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+  color: grey;
+  opacity: 0.5;
+  text-align: center;
+  font-size: 1.3em;
+  cursor: pointer;
+  user-select: none;
+ }
+
+ .settings:hover{
+   opacity: 1;
+ }
+
+ #settings-content{
+   background-color: black;
+   position: absolute;
+   left: 1.3em;
+   bottom: 3.5em;
+   opacity: 0.9;
+   width: 42em;
+   height: 26em;
+   z-index: 2;
+   border-radius: 6px;
+   word-break: break-all;
+ }
+
+ .setting-tabs{
+   color: #CCC;
+   line-height: 2;
+   font-size: 0.9em;
+   user-select: none;
+   cursor: pointer;
+ }
+
+.tab-column{
+  float: left;
+  padding-top: 1.8em;
+  padding-left: 1.5em;
+  width: 18%;
+  max-height: 385px;
+  height: 100%;
+}
+
+.border-right{
+  border-right:1px solid #333;
+}
+
+.setting-column{
+  float: left;
+  width: 70%;
+  padding-top: 1.8em;
+  padding-left: 1.5em;
+  padding-right: 1.8em;
+  max-height: 385px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-break: keep-all;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 4px transparent; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: grey; 
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #888888;
+}
+
+#settings-content .container{
+  display: inline-block;
+  width: 100%;
+  color: #CCC;
+  padding: 6px;
+  padding-left: 0px;
+}
+
+.container-style{
+  border-top: 1px solid #333;
+  font-size: 12.8px;
+}
+
+#settings-content .container .quote-history{
+  float: left;
+  width: 85%;
+  color: white;
+}
+
+#settings-content .container .quote-author{
+  display: inline;
+  color: grey;
+  font-size: 14.4px;
+}
+
+#settings-content .container .item{
+  float: left;
+}
+
+#settings-content .container .right-options{
+  float: right;
+  margin-right: 0.5em;
+}
+
+
+#settings-content .container:hover .item,
+#settings-content .container:hover .left,
+.setting-tabs:hover,
+.options:hover{
+  color: white;
+}
+
+#settings-content .container .left-options{
+  float: left;
+  font-size: 0.7em;
+  padding: 10px;
+  padding-left: 0px;
+  margin-right: 1.8em;
+}
+
+.right-options:hover,
+.left-options:hover{
+  color: white;
+  cursor: pointer;
+}
+
+.submit-button{
+  float: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 1em;
+  margin-bottom: 0.8em;
+}
+
+.active{
+  color: white;
+  display: inline;
+}
+
+.setting{
+  position: absolute;
+  top: 8em;
+  right: 17em;
+}
+
+.todo-loading{
+  position: absolute;
+  top: 5.5em;
+  left: 7.5em;
+}
+
+.todo-spinner{
+  position: absolute;
+  top: 4em;
+  left: 11em;
+}
+
+.logout-button{
+  position: absolute;
+  bottom: 1.3em;
+  left: 1.8em;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
+  border: none;
+  font-size: 0.8em;
+  padding: 2px 10px;
+  line-height: 1.4;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.logout-button:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.left{
+  float: left;
+}
+
+.error{
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.large-font{
+  font-size: 2em;
+}

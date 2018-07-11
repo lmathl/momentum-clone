@@ -1,0 +1,34 @@
+{
+  "name": "moment",
+  "version": "1.0.0",
+  "description": "Momentum clone",
+  "license": "MIT",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js && node ./bin/www",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "~1.18.2",
+    "cloudinary": "^1.11.0",
+    "compression": "^1.7.2",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.1",
+    "express": "^4.16.0",
+    "express-fileupload": "^0.4.0",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.0.8",
+    "mongoose": "^5.0.17",
+    "morgan": "~1.9.0",
+    "react-router-dom": "^4.2.2",
+    "yarn": "^1.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "husky": "^0.14.3"
+  }
+}
